@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ApexBuild — Premier Construction &amp; Civil Engineering</title>
+<!-- Tailwind CSS CDN -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Google Fonts: Plus Jakarta Sans & Outfit -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Outfit:wght@600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind Configuration -->
+<script data-purpose="tailwind-config">
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              navy: '#0b192e',
+              'navy-dark': '#060f1e',
+              'navy-light': '#152b4d',
+              orange: '#f05a22',
+              'orange-dark': '#d94712',
+              'orange-light': '#fff3ee',
+              sand: '#fbfbfb',
+              gray: '#64748b'
+            }
+          },
+          fontFamily: {
+            sans: ['Plus Jakarta Sans', 'sans-serif'],
+            heading: ['Outfit', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+<!-- Custom Styles -->
+<style data-purpose="custom-styling">
+    .custom-arch-shape {
+      border-top-left-radius: 4rem;
+      border-top-right-radius: 4rem;
+      border-bottom-left-radius: 1.5rem;
+      border-bottom-right-radius: 1.5rem;
+    }
+    .ruler-pattern {
+      background-image: repeating-linear-gradient(
+        to right,
+        #e2e8f0 0,
+        #e2e8f0 1px,
+        transparent 1px,
+        transparent 16px
+      );
+      height: 12px;
+    }
+    .rotate-slow {
+      animation: rotateCircle 18s linear infinite;
+    }
+    @keyframes rotateCircle {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body class="bg-[#fcfdfd] text-[#1e293b] font-sans antialiased overflow-x-hidden selection:bg-brand-orange selection:text-white">
+<!-- BEGIN: MainHeader -->
+<header class="w-full bg-white border-b border-slate-100 sticky top-0 z-50 transition-all duration-300">
+<div class="max-w-7xl mx-auto px-6 lg:px-12 h-20 flex items-center justify-between">
+<!-- Brand Logo -->
+<a class="flex items-center gap-3 group" data-purpose="brand-logo" href="#">
+<div class="w-10 h-10 rounded-xl bg-brand-navy flex items-center justify-center text-white shadow-md shadow-brand-navy/20 group-hover:bg-brand-orange transition-colors">
+<svg class="w-5 h-5 fill-current" viewbox="0 0 24 24">
+<path d="M12 2L2 7v3h20V7L12 2zm-8 7v10h3v-7h2v7h6v-7h2v7h3V9H4zm5 3h6v2H9v-2z"></path>
+</svg>
+</div>
+<span class="text-2xl font-black font-heading tracking-tight text-brand-navy">
+          APEX<span class="text-brand-orange">BUILD</span>
+</span>
+</a>
+<!-- Navigation Links -->
+<nav class="hidden md:flex items-center space-x-10 text-[15px] font-semibold text-slate-700">
+<a class="hover:text-brand-orange transition-colors" href="#services">Services</a>
+<a class="hover:text-brand-orange transition-colors" href="#about">Who We Are</a>
+<a class="hover:text-brand-orange transition-colors" href="#projects">Projects</a>
+<a class="hover:text-brand-orange transition-colors" href="#process">Process</a>
+<a class="hover:text-brand-orange transition-colors" href="#insights">Insights</a>
+</nav>
+<!-- Circular Badge CTA: Get In Touch -->
+<div class="flex items-center">
+<a class="group relative flex items-center justify-center w-16 h-16 rounded-full bg-brand-navy p-1 shadow-lg hover:shadow-brand-orange/30 transition-all duration-300" href="#contact">
+<!-- Rotating circular text -->
+<svg class="w-full h-full rotate-slow" viewbox="0 0 100 100">
+<defs>
+<path d="M 50, 50 m -36, 0 a 36,36 0 1,1 72,0 a 36,36 0 1,1 -72,0" id="circlePath"></path>
+</defs>
+<text class="text-[9px] uppercase tracking-widest font-bold fill-white">
+<textpath href="#circlePath">
+                • GET IN TOUCH • GET IN TOUCH
+              </textpath>
+</text>
+</svg>
+<!-- Center Arrow Circle -->
+<div class="absolute inset-0 m-auto w-7 h-7 rounded-full bg-brand-orange text-white flex items-center justify-center transform group-hover:scale-110 transition-transform">
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewbox="0 0 24 24">
+<path d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+</a>
+</div>
+</div>
+</header>
+<!-- END: MainHeader -->
+<!-- Architectural Ruler Line Divider -->
+<div class="ruler-pattern w-full border-b border-slate-200 opacity-60"></div>
+<!-- BEGIN: HeroSection -->
+<section class="relative pt-12 pb-24 overflow-hidden bg-white" data-purpose="hero-section">
+<div class="max-w-7xl mx-auto px-6 lg:px-12">
+<!-- Top Content Row: Headings & Service Tags -->
+<div class="mb-10">
+<!-- Overline Tag -->
+<div class="flex items-center gap-2 mb-4">
+<span class="w-7 h-[2px] bg-brand-orange"></span>
+<span class="text-xs font-bold uppercase tracking-wider text-slate-500">Award-Winning Construction Excellence</span>
+</div>
+<!-- Headline & Description Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+<div class="lg:col-span-8">
+<h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold font-heading text-brand-navy leading-[1.12] tracking-tight">
+              Where Innovation Drives <br/>
+<span class="text-brand-orange">Structural Perfection</span>
+</h1>
+</div>
+<div class="lg:col-span-4 pl-0 lg:pl-6 border-l-0 lg:border-l-2 border-brand-orange/40 pt-1">
+<p class="text-sm md:text-base text-slate-600 leading-relaxed font-normal">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            </p>
+</div>
+</div>
+<!-- Service Category Badges (Pills) -->
+<div class="flex flex-wrap gap-2.5 mt-8">
+<span class="px-4 py-1.5 rounded-full border border-slate-300 text-slate-700 text-xs md:text-sm font-medium hover:border-brand-orange transition-colors cursor-pointer bg-white">General Construction Services</span>
+<span class="px-4 py-1.5 rounded-full border border-slate-300 text-slate-700 text-xs md:text-sm font-medium hover:border-brand-orange transition-colors cursor-pointer bg-white">Concrete Work</span>
+<span class="px-4 py-1.5 rounded-full border border-slate-300 text-slate-700 text-xs md:text-sm font-medium hover:border-brand-orange transition-colors cursor-pointer bg-white">Design and Planning</span>
+<span class="px-4 py-1.5 rounded-full border border-slate-300 text-slate-700 text-xs md:text-sm font-medium hover:border-brand-orange transition-colors cursor-pointer bg-white">Civil Works</span>
+<span class="px-4 py-1.5 rounded-full border border-slate-300 text-slate-700 text-xs md:text-sm font-medium hover:border-brand-orange transition-colors cursor-pointer bg-white">Pre-Construction</span>
+</div>
+</div>
+<!-- Hero Visual Showcase Row with Dark Backdrop & Floating Stats Card -->
+<div class="relative mt-12 pt-6">
+<!-- Deep Navy Background Block (Bottom Offset) -->
+<div class="absolute bottom-0 left-0 right-0 h-44 bg-brand-navy rounded-3xl -z-0 overflow-hidden">
+<!-- Subtle Decorative Starburst Sparks -->
+<div class="absolute top-6 left-12 text-brand-orange opacity-80">
+<svg class="w-6 h-6 fill-current" viewbox="0 0 24 24"><path d="M12 0l2.5 9.5L24 12l-9.5 2.5L12 24l-2.5-9.5L0 12l9.5-2.5z"></path></svg>
+</div>
+<div class="absolute bottom-6 left-28 text-brand-orange/60">
+<svg class="w-4 h-4 fill-current" viewbox="0 0 24 24"><path d="M12 0l2.5 9.5L24 12l-9.5 2.5L12 24l-2.5-9.5L0 12l9.5-2.5z"></path></svg>
+</div>
+</div>
+<!-- Media & Stats Grid -->
+<div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 px-4 sm:px-8 pb-8 items-end">
+<!-- Large Showcase Image with Arch Geometry -->
+<div class="lg:col-span-8 relative">
+<div class="relative overflow-hidden rounded-t-[3.5rem] rounded-b-2xl shadow-2xl border-4 border-white bg-slate-200 aspect-[16/9] max-h-[460px]">
+<img alt="Engineers reviewing blueprints on site" class="w-full h-full object-cover object-center" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD8wviMjVqfEHprHb9RF2x-J6F7TyzTKhlggDhg0WO1B39tlnKjCO9pNyq3QMVx7e6akbvs_UXLlk0fUZr0rAfij670yRJuMGaSHqXFGM7rtxPW_ZUuZIbvFH8QaVU0xhUbPoKYpruvFU2ab9mQp3qkFpKjEVPc1mbs7zrJqqDX2F1oIYSqa8xfXE4pLwf_TLQzZFds8-aAvrFicPSh1ItPxnWN1t21gwi1U_lvF07FTX0RMdfgI7ViiQ"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
+<!-- Circular Video Preview Button -->
+<div class="absolute inset-0 m-auto w-14 h-14 rounded-full bg-white/80 backdrop-blur-md flex items-center justify-center shadow-lg hover:scale-110 cursor-pointer transition-transform group">
+<svg class="w-5 h-5 text-brand-navy ml-1 fill-current group-hover:text-brand-orange" viewbox="0 0 24 24">
+<path d="M8 5v14l11-7z"></path>
+</svg>
+</div>
+</div>
+</div>
+<!-- Orange Floating Stats Counter Card -->
+<div class="lg:col-span-4 mb-2 lg:mb-4">
+<div class="bg-brand-orange text-white p-8 rounded-3xl shadow-xl flex flex-col justify-between space-y-6">
+<!-- Metric 1 -->
+<div class="border-b border-white/20 pb-4">
+<div class="text-4xl lg:text-5xl font-extrabold font-heading">640+</div>
+<div class="text-sm font-medium text-white/90 mt-1">Projects Completed</div>
+</div>
+<!-- Metric 2 -->
+<div class="border-b border-white/20 pb-4">
+<div class="text-4xl lg:text-5xl font-extrabold font-heading">25+</div>
+<div class="text-sm font-medium text-white/90 mt-1">Years of Experience</div>
+</div>
+<!-- Metric 3 -->
+<div>
+<div class="text-4xl lg:text-5xl font-extrabold font-heading">450+</div>
+<div class="text-sm font-medium text-white/90 mt-1">Happy Customers</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- END: HeroSection -->
+<!-- Architectural Ruler Line Divider -->
+<div class="ruler-pattern w-full border-y border-slate-200 opacity-60"></div>
+<!-- BEGIN: AboutSection -->
+<section class="py-24 bg-white relative" data-purpose="about-section" id="about">
+<div class="max-w-7xl mx-auto px-6 lg:px-12">
+<!-- Top Title and Crane Graphic Header -->
+<div class="flex flex-col lg:flex-row justify-between items-start relative mb-14">
+<div class="max-w-2xl">
+<!-- Section Tag -->
+<div class="flex items-center gap-2 mb-3">
+<span class="w-7 h-[2px] bg-brand-orange"></span>
+<span class="text-xs font-bold uppercase tracking-wider text-slate-500">Who We Are</span>
+</div>
+<!-- Section Heading -->
+<h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold font-heading text-brand-navy leading-tight">
+<span class="text-brand-orange">Crafting Excellence</span> <br/>
+            in Every Project
+          </h2>
+<p class="text-slate-600 mt-5 text-sm md:text-base leading-relaxed max-w-xl">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          </p>
+</div>
+<!-- CTA & Crane Graphic Container -->
+<div class="mt-8 lg:mt-0 flex flex-col items-end gap-6 self-start lg:self-auto">
+<!-- Crane Hook Illustration -->
+<div class="hidden lg:block -mt-16 mr-12 select-none pointer-events-none">
+<svg class="w-16 h-28 text-slate-800" fill="none" stroke="currentColor" viewbox="0 0 100 160">
+<!-- Pulley and cables -->
+<line stroke="#94a3b8" stroke-width="4" x1="38" x2="38" y1="0" y2="40"></line>
+<line stroke="#94a3b8" stroke-width="4" x1="62" x2="62" y1="0" y2="40"></line>
+<!-- Pulley block -->
+<rect fill="#ea580c" height="42" rx="6" stroke="#c2410c" stroke-width="3" width="50" x="25" y="40"></rect>
+<circle cx="50" cy="55" fill="#0b192e" r="9"></circle>
+<circle cx="50" cy="55" fill="#ffffff" r="3"></circle>
+<!-- Hook swivel & throat -->
+<path d="M50 82 v18 c0 15 22 15 22 0 c0-10 -14-16 -14-16" stroke="#1e293b" stroke-linecap="round" stroke-width="7"></path>
+</svg>
+</div>
+<!-- Learn More Action Button -->
+<div class="flex items-center gap-3">
+<a class="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-brand-orange hover:bg-brand-orange-dark text-white font-semibold text-sm transition-all shadow-md shadow-brand-orange/20 group" href="#about-more">
+<span>Learn More</span>
+<span class="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center group-hover:translate-x-0.5 transition-transform">
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewbox="0 0 24 24">
+<path d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</span>
+</a>
+</div>
+</div>
+</div>
+<!-- About Dual Feature Cards Showcase -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+<!-- Card 1: Project Managers Handshake with Overlaid Badge -->
+<div class="lg:col-span-6 relative rounded-3xl overflow-hidden shadow-lg border border-slate-100 min-h-[340px] group">
+<img alt="Engineers handshake on structural site" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDXLo8FR_ktD7v9pDzHeebQMk4AFKu-W3Hl6_FlQTMLMPufw6g0Y-za917UEZxn4gE_VUEjytWJ56xJgnTdKcBlAd0FD-12W4kebyPPL1djHJOd-RaO9rHKOaA1iUgYdU_iBQSzAL5uQ5aMpZcrd82L14TqOjjx6XDhv4l8lz4tBJMdhe22w5fvprqmT_P9Z3X4-S6Y3nTRFZ4BqEiUQHc_eK0Hug0-2A99J9KXFAj3ovVXgy1Vcq9sYw"/>
+<div class="absolute inset-0 bg-slate-900/20"></div>
+<!-- 25+ Years Experience Floating Badge -->
+<div class="absolute bottom-5 right-5 bg-brand-orange text-white px-5 py-3 rounded-2xl shadow-xl flex items-center gap-3">
+<span class="text-3xl font-black font-heading leading-none">25+</span>
+<div class="text-xs font-semibold leading-tight uppercase tracking-wider">
+              Years<br/><span class="opacity-80 text-[10px]">Of Experience</span>
+</div>
+</div>
+</div>
+<!-- Card 2: Navy Mission Card with Carousel Control Arrows -->
+<div class="lg:col-span-6 bg-brand-navy rounded-3xl p-8 lg:p-12 text-white flex flex-col justify-between shadow-xl relative overflow-hidden">
+<!-- Text Excerpt -->
+<div>
+<p class="text-slate-300 text-sm sm:text-base leading-relaxed mb-6 font-normal">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.
+            </p>
+</div>
+<!-- Bottom Footer Row: Mission Header & Carousel Arrows -->
+<div class="flex items-center justify-between pt-8 border-t border-slate-700/50">
+<h3 class="text-lg font-bold font-heading tracking-wide text-brand-orange">
+              Our Mission
+            </h3>
+<!-- Navigation Arrow Buttons -->
+<div class="flex items-center gap-3">
+<button aria-label="Previous mission slide" class="w-10 h-10 rounded-full border border-slate-600 hover:border-brand-orange text-slate-300 hover:text-white flex items-center justify-center transition-colors">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewbox="0 0 24 24">
+<path d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+<button aria-label="Next mission slide" class="w-10 h-10 rounded-full bg-brand-orange text-white flex items-center justify-center hover:bg-brand-orange-dark transition-colors shadow-sm">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewbox="0 0 24 24">
+<path d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- END: AboutSection -->
+<!-- Architectural Ruler Line Divider -->
+<div class="ruler-pattern w-full border-y border-slate-200 opacity-60"></div>
+<!-- BEGIN: ServicesSection -->
+<section class="py-24 bg-slate-50/70" data-purpose="services-section" id="services">
+<div class="max-w-7xl mx-auto px-6 lg:px-12">
+<!-- Section Centered Header -->
+<div class="text-center max-w-2xl mx-auto mb-16">
+<div class="inline-flex items-center gap-2 mb-3">
+<span class="w-6 h-[2px] bg-brand-orange"></span>
+<span class="text-xs font-bold uppercase tracking-wider text-slate-500">Our Services</span>
+<span class="w-6 h-[2px] bg-brand-orange"></span>
+</div>
+<h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold font-heading text-brand-navy tracking-tight">
+          Services That Fit <br/>
+<span class="text-brand-orange">Your Needs</span>
+</h2>
+</div>
+<!-- 3-Column Services Card Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-14">
+<!-- Service Card 1: Residential Construction -->
+<article class="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-slate-100 flex flex-col group" data-purpose="service-card">
+<!-- Top Arched Image Container -->
+<div class="relative p-3 pb-0">
+<div class="relative overflow-hidden rounded-t-[2.5rem] rounded-b-xl h-52 bg-slate-200">
+<img alt="Residential construction blueprint team" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDzoqi411l8lw6BTx0eR_JA4QUIdMQuca5YmXu8FviD_J4LxFDsYcmaN9-ScUgPwMBdsnCI8P9lq5Iji3BygewqmqR4pNhs1Y2ZiNEAxVtD7ROLQqksYhM4QuFlr2jb-n-3aj_fQRaHoFKsmWrG6464XqwKjOYR5a6Uk_yEWISWQtHNJoDGPOFh07fLUVQI7i7K-XkF5D3y0S_WBwMogBvK0bljPHKYk7oBJ8zbO33c5WCqGUR6W2Ndwg"/>
+<div class="absolute inset-0 bg-brand-navy/20"></div>
+<!-- Floating Service Badge Icon -->
+<div class="absolute bottom-3 left-4 w-12 h-12 rounded-full bg-brand-navy border-2 border-white text-white flex items-center justify-center shadow-lg group-hover:bg-brand-orange transition-colors">
+<svg class="w-5 h-5 fill-current" viewbox="0 0 24 24">
+<path d="M19 9.3V4h-3v2.6L12 3 2 12h3v8h5v-6h4v6h5v-8h3l-3-2.7z"></path>
+</svg>
+</div>
+</div>
+</div>
+<!-- Card Content Body -->
+<div class="p-6 pt-5 flex-1 flex flex-col justify-between">
+<div>
+<h3 class="text-lg font-bold font-heading text-brand-navy mb-2 group-hover:text-brand-orange transition-colors">
+                Residential Construction
+              </h3>
+<p class="text-slate-500 text-xs sm:text-sm leading-relaxed mb-6 font-normal">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore...
+              </p>
+</div>
+<a class="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-brand-orange hover:text-brand-orange-dark transition-colors" href="#residential">
+<span>Learn more</span>
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewbox="0 0 24 24">
+<path d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</a>
+</div>
+</article>
+<!-- Service Card 2: Commercial Construction -->
+<article class="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-slate-100 flex flex-col group" data-purpose="service-card">
+<!-- Top Arched Image Container -->
+<div class="relative p-3 pb-0">
+<div class="relative overflow-hidden rounded-t-[2.5rem] rounded-b-xl h-52 bg-slate-200">
+<img alt="Commercial engineering structure" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB_oR26bMsk4DNtmBBOdJpPaoxdb4y2EMqglzbJMCr8OQLK1q6moAOVFeCBGXe78_EE9sM-yBWRRXlTO0Ov81_undz8I13rQAy3BwSYzmdTo7lrQc7sOBuxUkrjsHSCmXNk8UE127oUDEM0AG8SCgl8IKwFfTECB3GV1TwivZQ39JNXxg35U8QoKsdxm0wothcf7tQZ4Ket_MJjdiAyu_US7JKzp3MuTiex7HpihJufmGtinkkYb7720g"/>
+<div class="absolute inset-0 bg-brand-navy/20"></div>
+<!-- Floating Service Badge Icon -->
+<div class="absolute bottom-3 left-4 w-12 h-12 rounded-full bg-brand-navy border-2 border-white text-white flex items-center justify-center shadow-lg group-hover:bg-brand-orange transition-colors">
+<svg class="w-5 h-5 fill-current" viewbox="0 0 24 24">
+<path d="M12 7V3H2v18h20V7H12zM6 19H4v-2h2v2zm0-4H4v-2h2v2zm0-4H4V9h2v2zm0-4H4V5h2v2zm4 12H8v-2h2v2zm0-4H8v-2h2v2zm0-4H8V9h2v2zm0-4H8V5h2v2zm10 12h-8v-2h2v-2h-2v-2h2v-2h-2V9h8v10zm-2-8h-2v2h2v-2zm0 4h-2v2h2v-2z"></path>
+</svg>
+</div>
+</div>
+</div>
+<!-- Card Content Body -->
+<div class="p-6 pt-5 flex-1 flex flex-col justify-between">
+<div>
+<h3 class="text-lg font-bold font-heading text-brand-navy mb-2 group-hover:text-brand-orange transition-colors">
+                Commercial Construction
+              </h3>
+<p class="text-slate-500 text-xs sm:text-sm leading-relaxed mb-6 font-normal">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore...
+              </p>
+</div>
+<a class="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-brand-orange hover:text-brand-orange-dark transition-colors" href="#commercial">
+<span>Learn more</span>
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewbox="0 0 24 24">
+<path d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</a>
+</div>
+</article>
+<!-- Service Card 3: Renovations and Remodeling -->
+<article class="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-slate-100 flex flex-col group" data-purpose="service-card">
+<!-- Top Arched Image Container -->
+<div class="relative p-3 pb-0">
+<div class="relative overflow-hidden rounded-t-[2.5rem] rounded-b-xl h-52 bg-slate-200">
+<img alt="Renovation and remodeling painter" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDJnEBLh6B_EbPw4QiLemlgo6xueNYulmMyGb9axFGsvTKUoWRFiOR-zD1xItiJAl_Cxacbrar5zK6rNwiYyN7BJIy2p6breNlFPid0NdF3O3W1BkGyPnU5ymXUylBR3tQFy9zj1ndBMO65YXQAG7BA7TGK0Uj6mnWE59XEhDViQniRUPTYOJgdsvKf9_pkmWJADEnvLCuXM1b1nJQL32GBk0wDWNxPGU4-QtuHvoYVO9Nth8s4JKO_hg"/>
+<div class="absolute inset-0 bg-brand-navy/20"></div>
+<!-- Floating Service Badge Icon -->
+<div class="absolute bottom-3 left-4 w-12 h-12 rounded-full bg-brand-navy border-2 border-white text-white flex items-center justify-center shadow-lg group-hover:bg-brand-orange transition-colors">
+<svg class="w-5 h-5 fill-current" viewbox="0 0 24 24">
+<path d="M22.7 19l-9.1-9.1c.9-2.3.4-5-1.5-6.9-2-2-5-2.4-7.4-1.3L9 6 6 9 1.6 4.7C.4 7.1.9 10.1 2.9 12.1c1.9 1.9 4.6 2.4 6.9 1.5l9.1 9.1c.4.4 1 .4 1.4 0l2.3-2.3c.5-.4.5-1.1.1-1.4z"></path>
+</svg>
+</div>
+</div>
+</div>
+<!-- Card Content Body -->
+<div class="p-6 pt-5 flex-1 flex flex-col justify-between">
+<div>
+<h3 class="text-lg font-bold font-heading text-brand-navy mb-2 group-hover:text-brand-orange transition-colors">
+                Renovations and Remodeling
+              </h3>
+<p class="text-slate-500 text-xs sm:text-sm leading-relaxed mb-6 font-normal">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore...
+              </p>
+</div>
+<a class="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-brand-orange hover:text-brand-orange-dark transition-colors" href="#renovations">
+<span>Learn more</span>
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewbox="0 0 24 24">
+<path d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</a>
+</div>
+</article>
+</div>
+<!-- Centered View All Services CTA Button -->
+<div class="flex justify-center">
+<a class="inline-flex items-center gap-3 px-8 py-3.5 rounded-full bg-brand-orange hover:bg-brand-orange-dark text-white font-semibold text-sm transition-all shadow-lg shadow-brand-orange/20 group" href="#services-all">
+<span>View All Services</span>
+<span class="w-6 h-6 rounded-full bg-brand-navy flex items-center justify-center group-hover:translate-x-0.5 transition-transform text-white">
+<svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="3" viewbox="0 0 24 24">
+<path d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</span>
+</a>
+</div>
+</div>
+</section>
+<!-- END: ServicesSection -->
+<!-- Architectural Ruler Line Divider -->
+<div class="ruler-pattern w-full border-y border-slate-200 opacity-60"></div>
+<!-- BEGIN: ProcessTeaserSection -->
+<section class="py-20 bg-white" data-purpose="process-teaser" id="process">
+<div class="max-w-7xl mx-auto px-6 lg:px-12 flex flex-col md:flex-row items-center justify-between gap-6">
+<div>
+<div class="flex items-center gap-2 mb-2">
+<span class="w-7 h-[2px] bg-brand-orange"></span>
+<span class="text-xs font-bold uppercase tracking-wider text-slate-500">How We Works</span>
+</div>
+<h2 class="text-3xl sm:text-4xl font-extrabold font-heading text-brand-navy">
+          How We <span class="text-brand-orange">Get It Done</span>
+</h2>
+</div>
+<div>
+<a class="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-brand-orange hover:bg-brand-orange-dark text-white font-semibold text-sm transition-all shadow-md shadow-brand-orange/25 group" href="#process-details">
+<span>Learn More</span>
+<span class="w-6 h-6 rounded-full bg-brand-navy flex items-center justify-center group-hover:translate-x-0.5 transition-transform text-white">
+<svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="3" viewbox="0 0 24 24">
+<path d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</span>
+</a>
+</div>
+</div>
+</section>
+<!-- END: ProcessTeaserSection -->
+<!-- BEGIN: MainFooter -->
+<footer class="bg-brand-navy text-slate-400 py-16 border-t border-slate-800" data-purpose="main-footer" id="contact">
+<div class="max-w-7xl mx-auto px-6 lg:px-12">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 pb-12 border-b border-slate-800">
+<!-- Company Info -->
+<div class="lg:col-span-2">
+<div class="flex items-center gap-3 mb-5">
+<div class="w-9 h-9 rounded-xl bg-brand-orange flex items-center justify-center text-white">
+<svg class="w-5 h-5 fill-current" viewbox="0 0 24 24">
+<path d="M12 2L2 7v3h20V7L12 2zm-8 7v10h3v-7h2v7h6v-7h2v7h3V9H4zm5 3h6v2H9v-2z"></path>
+</svg>
+</div>
+<span class="text-2xl font-black font-heading tracking-tight text-white">
+              APEX<span class="text-brand-orange">BUILD</span>
+</span>
+</div>
+<p class="text-sm text-slate-400 leading-relaxed max-w-sm mb-6">
+            Leading civil engineering and construction specialists crafting structural landmarks with integrity, technology, and superior standard executions.
+          </p>
+<div class="text-xs text-slate-500">
+            Licensed General Contractor #BC-98421008
+          </div>
+</div>
+<!-- Quick Links -->
+<div>
+<h4 class="text-white text-sm font-bold uppercase tracking-wider mb-4 font-heading">Company</h4>
+<ul class="space-y-2.5 text-sm">
+<li><a class="hover:text-brand-orange transition-colors" href="#">About Firm</a></li>
+<li><a class="hover:text-brand-orange transition-colors" href="#">Our Team</a></li>
+<li><a class="hover:text-brand-orange transition-colors" href="#">Projects Archive</a></li>
+<li><a class="hover:text-brand-orange transition-colors" href="#">Safety Certifications</a></li>
+</ul>
+</div>
+<!-- Services -->
+<div>
+<h4 class="text-white text-sm font-bold uppercase tracking-wider mb-4 font-heading">Solutions</h4>
+<ul class="space-y-2.5 text-sm">
+<li><a class="hover:text-brand-orange transition-colors" href="#">Residential Buildings</a></li>
+<li><a class="hover:text-brand-orange transition-colors" href="#">Commercial Complexes</a></li>
+<li><a class="hover:text-brand-orange transition-colors" href="#">Civil Infrastructure</a></li>
+<li><a class="hover:text-brand-orange transition-colors" href="#">Urban Remodeling</a></li>
+</ul>
+</div>
+<!-- Contact Details -->
+<div>
+<h4 class="text-white text-sm font-bold uppercase tracking-wider mb-4 font-heading">Headquarters</h4>
+<p class="text-sm text-slate-400 leading-relaxed mb-3">
+            742 Evergreen Terrace, Suite 400<br/>New York, NY 10001
+          </p>
+<p class="text-sm text-brand-orange font-semibold">
+            +1 (800) 459-2231
+          </p>
+</div>
+</div>
+<!-- Copyright Bottom Bar -->
+<div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-4">
+<div>© 2025 ApexBuild Civil &amp; Infrastructure Engineering Ltd. All rights reserved.</div>
+<div class="flex items-center space-x-6">
+<a class="hover:text-white transition-colors" href="#">Privacy Policy</a>
+<a class="hover:text-white transition-colors" href="#">Terms of Service</a>
+<a class="hover:text-white transition-colors" href="#">Building Safety Standards</a>
+</div>
+</div>
+</div>
+</footer>
+<!-- END: MainFooter -->
+</body></html>
