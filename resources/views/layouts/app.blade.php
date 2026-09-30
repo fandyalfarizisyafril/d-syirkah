@@ -1,5 +1,5 @@
 @php
-    $company = config('company');
+    $company = $company ?? app(\App\Services\WebsiteContent::class)->get();
     $pageTitle = trim($__env->yieldContent('title', $company['name']));
     $description = trim($__env->yieldContent('description', $company['description']));
 @endphp
@@ -26,7 +26,7 @@
     <script type="application/ld+json">{!! json_encode([
         '@context' => 'https://schema.org', '@type' => 'Organization', 'name' => $company['name'],
         'url' => route('home'), 'telephone' => $company['phone_uri'], 'email' => $company['emails'][0],
-        'address' => ['@type' => 'PostalAddress', 'streetAddress' => 'Jalan Teladan No. 7, RT 04/RW 10, Simpang Baru, Bina Widya', 'addressLocality' => 'Pekanbaru', 'addressRegion' => 'Riau', 'postalCode' => '28293', 'addressCountry' => 'ID'],
+        'address' => $company['address'],
     ], JSON_UNESCAPED_SLASHES | JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT) !!}</script>
 </head>
 <body class="@yield('body_class')">

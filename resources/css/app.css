@@ -11,6 +11,19 @@
     --font-sans: 'Segoe UI', Arial, sans-serif;
 }
 
+.brand-logo { width: 160px; height: 80px; object-fit: contain; margin-bottom: 24px; }
+.wordmark > span:last-child { max-width: 200px; overflow-wrap: anywhere; }
+.public-inquiry { max-width: 780px; }
+.public-inquiry form { margin-top: 30px; }
+.inquiry-fields { display: grid; grid-template-columns: 1fr 1fr; gap: 0 24px; }
+.public-inquiry .a-field { display: flex; flex-direction: column; gap: 8px; margin-bottom: 22px; min-width: 0; }
+.public-inquiry .a-field label { font-size: 13px; font-weight: 600; }
+.public-inquiry input, .public-inquiry select, .public-inquiry textarea { width: 100%; min-width: 0; padding: 12px; border: 1px solid #9baaa4; border-radius: 4px; background: white; font: inherit; }
+.public-inquiry textarea { resize: vertical; }
+.inquiry-success { padding: 18px; margin-top: 25px; background: #e2f2e9; color: #195c42; border: 1px solid #a1cbb5; }
+.inquiry-trap { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+@media(max-width: 539px) { .inquiry-fields { grid-template-columns: 1fr; } .wordmark > span:last-child { max-width: 120px; } }
+
 :root { --ink: #202d31; --muted: #596467; --orange: #c84417; --orange-bright: #f06431; --teal: #176956; --line: #dce1df; --soft: #f4f6f5; }
 * { box-sizing: border-box; letter-spacing: 0; }
 html { scroll-behavior: smooth; scroll-padding-top: 110px; }

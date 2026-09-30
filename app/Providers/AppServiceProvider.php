@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Services\WebsiteContent;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
@@ -21,7 +22,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         View::composer(['layouts.app', 'pages.*', 'errors.*'], function ($view) {
-            $view->with('company', config('company'));
+            $view->with('company', app(WebsiteContent::class)->get());
         });
     }
 }

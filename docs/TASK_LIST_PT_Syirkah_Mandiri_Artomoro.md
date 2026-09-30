@@ -14,13 +14,14 @@ Tujuan task list ini adalah menjadi backlog development untuk membangun website 
 
 - Milestone 1 sudah diimplementasikan dan diverifikasi di lokal: halaman publik, katalog tujuh kategori, detail produk/brand, solusi, kontak, informasi legal terbatas, responsive UI, dan SEO dasar.
 - Pencarian, filter bidang produk, dan empty state dari Milestone 2 sudah tersedia.
-- Permintaan penawaran saat ini melalui link email dengan konteks produk. Belum ada form submit, penyimpanan inquiry, atau pengiriman email otomatis dari server.
-- Konten awal menggunakan Bahasa Indonesia dan `config/company.php`. Identitas visual, foto ilustratif, serta representasi brand berbasis teks bersifat sementara sampai asset resmi tersedia.
+- Form inquiry sudah menyimpan permintaan ke database dan dashboard admin, dengan konteks produk, validasi, CSRF, honeypot, serta throttle. Link email tetap tersedia; notifikasi email otomatis belum diaktifkan.
+- Konten Bahasa Indonesia sekarang dikelola melalui CMS database, dengan seed awal dari `config/company.php`. Identitas visual, foto ilustratif, serta representasi brand berbasis teks bersifat sementara sampai asset resmi tersedia.
 - Nomor legal tidak dipublikasikan. Tabel spesifikasi dan download datasheet didukung template, tetapi data/PDF resmi belum tersedia.
 - Homepage telah disesuaikan dengan `HOMEPAGE_DESIGN_SPEC.md`: hero putih, navy/oranye, font Outfit/Plus Jakarta Sans lokal, CTA melingkar, foto melengkung, panel statistik, carousel nilai, dan kartu layanan bergambar.
-- Verifikasi terbaru: 18 test Laravel (144 assertions), 20 test browser pada lima viewport, dan build production berhasil.
-- Milestone 3 (Admin CMS) dan deployment production belum dikerjakan. Checkbox kosong tetap menjadi backlog atau menunggu data/keputusan owner.
-- Catatan implementasi dan cara menjalankan: [IMPLEMENTATION_MILESTONE_1.md](IMPLEMENTATION_MILESTONE_1.md).
+- Milestone 3 tersedia di `/admin`: login, dashboard, pengelolaan produk/kategori/brand, upload gambar/PDF, konten perusahaan, legalitas, solusi, dan inquiry.
+- Verifikasi terbaru: 37 test Laravel (372 assertions), 26 test browser pada lima viewport, dan build production berhasil. Empat pengulangan uji tulis dilewati karena alur tersebut dijalankan sekali di desktop.
+- Deployment production belum dikerjakan. Checkbox kosong tetap menjadi backlog atau menunggu data/keputusan owner.
+- Panduan terkini: [ADMIN_CMS.md](ADMIN_CMS.md). Riwayat website publik: [IMPLEMENTATION_MILESTONE_1.md](IMPLEMENTATION_MILESTONE_1.md).
 
 ---
 
@@ -64,7 +65,7 @@ Tujuan task list ini adalah menjadi backlog development untuk membangun website 
 - [ ] Konfirmasi level detail spesifikasi produk yang boleh dipublikasikan.
 - [ ] Konfirmasi ketersediaan datasheet PDF untuk setiap produk.
 - [ ] Konfirmasi apakah inquiry dikirim ke email, WhatsApp, admin dashboard, atau kombinasi.
-- [ ] Konfirmasi apakah Admin CMS wajib untuk versi awal.
+- [x] Konfirmasi apakah Admin CMS wajib untuk versi awal (diminta untuk dieksekusi).
 - [ ] Konfirmasi logo resmi, warna brand, font, dan brand guideline.
 - [ ] Konfirmasi foto resmi produk, kantor, tim, proyek, atau dokumentasi perusahaan.
 - [ ] Konfirmasi apakah legalitas NPWP, SK Kemenkumham, dan NIB boleh ditampilkan publik.
@@ -106,7 +107,7 @@ Acceptance criteria:
 - [x] Buat route `GET /brands/{slug}` jika halaman detail brand dibutuhkan.
 - [x] Buat route `GET /industries` atau `GET /solutions` untuk Industrial Solutions.
 - [x] Buat route `GET /contact` untuk Contact.
-- [ ] Buat route `GET /inquiry` jika form inquiry dibuat sebagai halaman terpisah.
+- [x] Sediakan form inquiry di `/contact#inquiry` dan endpoint `POST /inquiry`; halaman terpisah tidak diperlukan.
 - [x] Tentukan canonical navigation dan footer links.
 - [x] Buat active state navigation untuk halaman yang sedang dibuka.
 - [x] Buat fallback atau 404 yang rapi untuk slug produk/brand tidak ditemukan.
@@ -130,7 +131,7 @@ Acceptance criteria:
 - [x] Buat copy untuk setiap kategori produk.
 - [x] Buat copy untuk setiap brand/principal.
 - [x] Buat copy untuk halaman contact dan inquiry.
-- [ ] Buat microcopy validasi form dan success state.
+- [x] Buat microcopy validasi form inquiry dan success state.
 - [x] Review tone copy agar profesional, industrial, dan tidak terasa seperti template konstruksi umum.
 
 Acceptance criteria:
@@ -215,9 +216,9 @@ Acceptance criteria:
 - [x] Tampilkan product image atau placeholder.
 - [x] Tampilkan deskripsi produk.
 - [x] Tampilkan application/use case.
-- [ ] Tampilkan technical specification dalam format table.
+- [x] Tampilkan technical specification dalam format table ketika diisi melalui CMS; data resmi masih menunggu owner.
 - [x] Tambahkan CTA Request Inquiry.
-- [ ] Tambahkan CTA Download Datasheet jika datasheet tersedia.
+- [x] Tambahkan CTA Download Datasheet jika datasheet tersedia melalui upload CMS.
 - [x] Tambahkan related products atau related categories.
 - [x] Buat metadata SEO dinamis berdasarkan produk.
 
@@ -281,7 +282,7 @@ Acceptance criteria:
   - `admin@smartomoro.com`
 - [x] Tambahkan CTA email dan phone clickable.
 - [ ] Tambahkan map embed jika owner menyetujui.
-- [ ] Tambahkan contact form atau link inquiry jika phase 2 dikerjakan.
+- [x] Tambahkan contact form atau link inquiry jika phase 2 dikerjakan.
 
 Acceptance criteria:
 
@@ -292,10 +293,10 @@ Acceptance criteria:
 
 ## 13. Product Inquiry
 
-Catatan: Fitur inquiry direkomendasikan di PRD, tetapi perlu validasi owner.
+Implementasi saat ini menggunakan database/admin. Konfirmasi owner untuk notifikasi tambahan tetap menjadi backlog.
 
 - [ ] Konfirmasi channel penerimaan inquiry: email, WhatsApp, database/admin, atau kombinasi.
-- [ ] Buat form inquiry dengan field:
+- [x] Buat form inquiry dengan field:
   - Nama
   - Perusahaan
   - Email
@@ -303,15 +304,15 @@ Catatan: Fitur inquiry direkomendasikan di PRD, tetapi perlu validasi owner.
   - Produk
   - Kebutuhan
   - Pesan
-- [ ] Buat validasi server-side untuk semua field wajib.
-- [ ] Buat validasi email dan nomor telepon.
-- [ ] Buat proteksi spam, misalnya honeypot, throttle, atau CAPTCHA jika diperlukan.
-- [ ] Buat success message setelah submit.
-- [ ] Buat error state yang jelas.
+- [x] Buat validasi server-side untuk semua field wajib.
+- [x] Buat validasi email dan nomor telepon.
+- [x] Buat proteksi spam, misalnya honeypot, throttle, atau CAPTCHA jika diperlukan.
+- [x] Buat success message setelah submit.
+- [x] Buat error state yang jelas.
 - [ ] Kirim notifikasi inquiry ke email perusahaan jika channel email dipilih.
-- [ ] Simpan inquiry ke database jika admin dashboard dipilih.
-- [ ] Tambahkan product prefill ketika user klik inquiry dari Product Detail.
-- [ ] Tambahkan test untuk submit inquiry valid dan invalid.
+- [x] Simpan inquiry ke database jika admin dashboard dipilih.
+- [x] Tambahkan product prefill ketika user klik inquiry dari Product Detail.
+- [x] Tambahkan test untuk submit inquiry valid dan invalid.
 
 Acceptance criteria:
 
@@ -324,25 +325,25 @@ Acceptance criteria:
 
 ## 14. Admin CMS
 
-Catatan: Admin CMS direkomendasikan di PRD, tetapi perlu validasi owner dan bisa menjadi phase 2.
+Implementasi custom Laravel/Blade. Profil dan kontak berupa editor dokumen tunggal; solusi dan legal berupa daftar item. Tidak ada manajemen role/user melalui UI.
 
-- [ ] Tentukan apakah CMS dibuat custom Laravel atau menggunakan admin panel package.
-- [ ] Buat autentikasi admin.
-- [ ] Buat dashboard admin.
-- [ ] Buat CRUD Company Profile.
-- [ ] Buat CRUD Product Categories.
-- [ ] Buat CRUD Products.
-- [ ] Buat CRUD Product Specifications.
-- [ ] Buat upload/change product image.
-- [ ] Buat CRUD Brands / Principals.
-- [ ] Buat CRUD Industries / Solutions.
-- [ ] Buat CRUD Legal Information.
-- [ ] Buat CRUD Contact Information.
-- [ ] Buat daftar Inquiry.
-- [ ] Buat detail Inquiry.
-- [ ] Buat status Inquiry, misalnya new, contacted, closed.
-- [ ] Tambahkan authorization agar hanya admin yang dapat mengelola CMS.
-- [ ] Tambahkan audit sederhana: created_at, updated_at, dan admin updater jika diperlukan.
+- [x] Tentukan apakah CMS dibuat custom Laravel atau menggunakan admin panel package.
+- [x] Buat autentikasi admin, logout, ganti password, dan pemulihan via CLI.
+- [x] Buat dashboard admin.
+- [x] Buat pengelolaan Company Profile.
+- [x] Buat CRUD Product Categories.
+- [x] Buat CRUD Products, termasuk draft/publik.
+- [x] Buat CRUD Product Specifications.
+- [x] Buat upload/change product image dan datasheet PDF.
+- [x] Buat CRUD Brands / Principals.
+- [x] Buat CRUD Industries / Solutions.
+- [x] Buat CRUD Legal Information.
+- [x] Buat pengelolaan Contact Information.
+- [x] Buat daftar Inquiry dengan pencarian/filter.
+- [x] Buat detail Inquiry dan hapus permanen.
+- [x] Buat status Inquiry: new, contacted, closed, serta catatan internal.
+- [x] Tambahkan authorization agar hanya admin yang dapat mengelola CMS.
+- [x] Tambahkan audit sederhana: created_at, updated_at, dan admin updater (bukan riwayat audit lengkap).
 
 Acceptance criteria:
 
@@ -354,21 +355,21 @@ Acceptance criteria:
 
 ## 15. Data Model
 
-Jika menggunakan database/CMS, siapkan model dan migration berikut:
+Model dan migration menggunakan tabel relasional untuk katalog/inquiry serta dokumen JSON tervalidasi untuk konten kecil:
 
-- [ ] `CompanyProfile`
-- [ ] `ProductCategory`
-- [ ] `Product`
-- [ ] `ProductSpecification`
-- [ ] `Brand`
-- [ ] `Industry`
-- [ ] `Solution`
-- [ ] `Inquiry`
-- [ ] `LegalInformation`
-- [ ] `ContactInformation`
-- [ ] `ProductDatasheet` atau field datasheet pada `Product`
-- [ ] Seeder data awal berdasarkan PRD.
-- [ ] Factory untuk test data.
+- [x] `CompanyProfile` melalui `SiteContent` key `company`.
+- [x] `ProductCategory` melalui `Category`.
+- [x] `Product`.
+- [x] `ProductSpecification` melalui field JSON `Product.specifications`.
+- [x] `Brand`.
+- [ ] `Industry` terpisah, menunggu kategori industri yang disetujui owner.
+- [x] `Solution` melalui `SiteContent` key `solutions` dengan relasi ID produk.
+- [x] `Inquiry`.
+- [x] `LegalInformation` melalui `SiteContent` key `legal`.
+- [x] `ContactInformation` melalui dokumen profil/kontak `company`.
+- [x] Field datasheet pada `Product`.
+- [x] Seeder data awal berdasarkan PRD, tidak menimpa perubahan admin saat diulang.
+- [x] Factory user/admin dan fixture katalog berbasis seeder untuk test data.
 
 Acceptance criteria:
 
@@ -464,12 +465,12 @@ Acceptance criteria:
 
 ## 20. Security
 
-- [ ] Validasi semua input form di server-side.
-- [ ] Terapkan CSRF protection pada form.
-- [ ] Terapkan rate limiting untuk form inquiry.
-- [ ] Sanitasi output yang berasal dari admin/CMS.
-- [ ] Batasi upload file berdasarkan tipe, ukuran, dan lokasi penyimpanan.
-- [ ] Pastikan halaman admin hanya bisa diakses user authorized.
+- [x] Validasi semua input form di server-side.
+- [x] Terapkan CSRF protection pada form.
+- [x] Terapkan rate limiting untuk form inquiry dan login.
+- [x] Escape output yang berasal dari admin/CMS menggunakan Blade.
+- [x] Batasi upload file berdasarkan tipe, ukuran, dan lokasi penyimpanan.
+- [x] Pastikan halaman admin hanya bisa diakses user authorized.
 - [ ] Pastikan `.env` tidak terekspos.
 - [ ] Pastikan konfigurasi mail dan database tidak masuk repository.
 
@@ -490,10 +491,10 @@ Acceptance criteria:
 - [x] Test Product Detail menampilkan 404 untuk slug invalid.
 - [x] Test route Brands berhasil.
 - [x] Test route Contact berhasil.
-- [ ] Test form inquiry valid dapat submit.
-- [ ] Test form inquiry invalid menampilkan error.
+- [x] Test form inquiry valid dapat submit.
+- [x] Test form inquiry invalid menampilkan error.
 - [ ] Test inquiry email/notification jika fitur email diaktifkan.
-- [ ] Test admin authorization jika CMS dibuat.
+- [x] Test admin authorization jika CMS dibuat.
 - [x] Test responsive layout secara manual di desktop dan mobile.
 - [x] Jalankan `php artisan test`.
 - [x] Jalankan `npm run build`.
@@ -522,7 +523,7 @@ Acceptance criteria:
 - [ ] Verifikasi phone/email link.
 - [ ] Verifikasi halaman 404.
 - [ ] Verifikasi sitemap dan robots.txt.
-- [ ] Buat checklist handover untuk owner/admin.
+- [x] Buat checklist handover untuk owner/admin di `ADMIN_CMS.md`; verifikasi production tetap belum dilakukan.
 
 Acceptance criteria:
 
@@ -584,5 +585,5 @@ Acceptance criteria:
 - [x] Test utama lulus.
 - [x] Tidak ada error console atau error server pada flow utama.
 - [x] SEO basic sudah terpasang.
-- [ ] Form inquiry aman dan tervalidasi jika masuk scope.
-- [ ] Dokumentasi handover tersedia jika CMS dibuat.
+- [x] Form inquiry dilindungi CSRF, throttle, honeypot, dan validasi server.
+- [x] Dokumentasi handover tersedia jika CMS dibuat.

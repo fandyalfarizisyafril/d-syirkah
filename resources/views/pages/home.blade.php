@@ -2,7 +2,7 @@
 @section('body_class', 'homepage')
 @section('content')
 @php
-    $brandCount = collect($company['products'])->pluck('brand_slug')->unique()->count();
+    $brandCount = count($company['brands']);
     $slides = [
         ['name' => 'Fokus Kami', 'description' => $company['profile']],
         ...$company['values'],
@@ -38,7 +38,7 @@
                 <figcaption>Engineering & integrated technical solutions <span>Foto ilustrasi</span></figcaption>
             </figure>
             <dl class="showcase-statistics" aria-label="Cakupan produk dan bidang perusahaan">
-                <div><dt>Kategori Produk</dt><dd>{{ str_pad(count($company['products']), 2, '0', STR_PAD_LEFT) }}</dd></div>
+                <div><dt>Produk & Solusi</dt><dd>{{ str_pad(count($company['products']), 2, '0', STR_PAD_LEFT) }}</dd></div>
                 <div><dt>Brand & Principal</dt><dd>{{ str_pad($brandCount, 2, '0', STR_PAD_LEFT) }}</dd></div>
                 <div><dt>Bidang Fokus</dt><dd>{{ str_pad(count($company['focus']), 2, '0', STR_PAD_LEFT) }}</dd></div>
             </dl>
@@ -54,7 +54,7 @@
             <div>
                 <p class="eyebrow">Tentang Perusahaan</p>
                 <h2><span>Partner yang Tepat</span><br>untuk Kebutuhan Industri</h2>
-                <p class="about-description">PT. Syirkah Mandiri Artomoro hadir untuk kebutuhan industrial equipment, spare parts, dan engineering solutions di Indonesia.</p>
+                <p class="about-description">{{ $company['name'] }} hadir untuk kebutuhan industrial equipment, spare parts, dan engineering solutions di Indonesia.</p>
             </div>
             <div class="about-heading-action">
                 @include('partials.crane-decoration')
@@ -127,8 +127,8 @@
         <div class="brand-heading"><p class="eyebrow">Brand & Principal</p><a class="text-link" href="{{ route('brands.index') }}">Kenali Brand <x-icon name="arrow-up-right" /></a></div>
         <h2 class="sr-only">Brand dalam portofolio produk</h2>
         <div class="brand-row">
-            @foreach($company['products'] as $product)
-                <a href="{{ route('brands.show', $product['brand_slug']) }}">{{ $product['brand'] }}</a>
+            @foreach($company['brands'] as $brandSlug => $brand)
+                <a href="{{ route('brands.show', $brandSlug) }}">{{ $brand['name'] }}</a>
             @endforeach
         </div>
     </div>

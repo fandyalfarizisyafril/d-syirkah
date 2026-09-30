@@ -2,6 +2,8 @@
 
 Tanggal: 30 September 2026.
 
+> Pembaruan: Admin CMS dan inquiry berbasis database sudah diimplementasikan setelah milestone ini. Panduan terkini berada di [ADMIN_CMS.md](ADMIN_CMS.md). Keterangan konten statis dan inquiry email-only di bawah adalah catatan historis Milestone 1.
+
 ## Penyesuaian Homepage Berdasarkan Design Spec
 
 Homepage telah disesuaikan dengan `docs/HOMEPAGE_DESIGN_SPEC.md` setelah implementasi awal. Catatan desain awal di bawah bersifat historis; acuan tampilan homepage sekarang adalah spesifikasi tersebut.
