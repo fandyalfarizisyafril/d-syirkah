@@ -14,6 +14,8 @@ Tujuan task list ini adalah menjadi backlog development untuk membangun website 
 
 Pembaruan 5 Oktober 2026: kartu katalog kini memiliki area gambar 4:3 dan tujuh gambar referensi sementara, terhubung ke CMS. Foto oil boom diberi label ilustrasi, bukan produk BLU-C. Sumber dan batas penggunaan dicatat di [PRODUCT_IMAGE_REFERENCES.md](PRODUCT_IMAGE_REFERENCES.md). Foto pilihan owner dan izin publikasi production tetap belum final.
 
+Revisi header 5 Oktober 2026: seluruh halaman publik, termasuk detail produk/brand dan 404, menggunakan desain header beranda. Logo factory navy, wordmark oranye, font, lebar konten, tombol kontak melingkar, dan divider penggaris kini konsisten. Utility bar versi lama dihapus; menu aktif, navigasi mobile, keyboard, dan reduced motion tetap berfungsi. Gaya bersama berada di `resources/css/header.css`; konten halaman, footer, dan admin tidak diubah.
+
 - Milestone 1 sudah diimplementasikan dan diverifikasi di lokal: halaman publik, katalog tujuh kategori, detail produk/brand, solusi, kontak, informasi legal terbatas, responsive UI, dan SEO dasar.
 - Pencarian, filter bidang produk, dan empty state dari Milestone 2 sudah tersedia.
 - Form inquiry sudah menyimpan permintaan ke database dan dashboard admin, dengan konteks produk, validasi, CSRF, honeypot, serta throttle. Link email tetap tersedia; notifikasi email otomatis belum diaktifkan.
@@ -21,7 +23,7 @@ Pembaruan 5 Oktober 2026: kartu katalog kini memiliki area gambar 4:3 dan tujuh 
 - Nomor legal tidak dipublikasikan. Tabel spesifikasi dan download datasheet didukung template, tetapi data/PDF resmi belum tersedia.
 - Homepage telah disesuaikan dengan `HOMEPAGE_DESIGN_SPEC.md`: hero putih, navy/oranye, font Outfit/Plus Jakarta Sans lokal, CTA melingkar, foto melengkung, panel statistik, carousel nilai, dan kartu layanan bergambar.
 - Milestone 3 tersedia di `/admin`: login, dashboard, pengelolaan produk/kategori/brand, upload gambar/PDF, konten perusahaan, legalitas, solusi, dan inquiry.
-- Verifikasi terbaru: 37 test Laravel (372 assertions), 26 test browser pada lima viewport, dan build production berhasil. Empat pengulangan uji tulis dilewati karena alur tersebut dijalankan sekali di desktop.
+- Verifikasi revisi header: 40 test Laravel (438 assertions), 25 test browser publik dan 5 test header pada lima viewport lulus; build production berhasil. Uji browser admin tidak diulang pada revisi tampilan header ini.
 - Deployment production belum dikerjakan. Checkbox kosong tetap menjadi backlog atau menunggu data/keputusan owner.
 - Panduan terkini: [ADMIN_CMS.md](ADMIN_CMS.md). Riwayat website publik: [IMPLEMENTATION_MILESTONE_1.md](IMPLEMENTATION_MILESTONE_1.md).
 

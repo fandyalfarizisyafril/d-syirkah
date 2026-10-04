@@ -36,6 +36,17 @@ class PublicWebsiteTest extends TestCase
         }
     }
 
+    public function test_public_header_is_shared_across_pages_and_keeps_active_navigation(): void
+    {
+        foreach (['/' => 'home', '/about' => 'about', '/products' => 'products.index', '/products/electric-motors-generators' => 'products.index', '/brands' => 'brands.index', '/brands/wolong' => 'brands.index', '/solutions' => 'solutions', '/contact' => 'contact'] as $path => $activeRoute) {
+            $this->get($path)->assertOk()
+                ->assertSee('class="round-contact"', false)
+                ->assertSee('href="'.route($activeRoute).'"  aria-current="page"', false)
+                ->assertDontSee('class="utility-bar"', false)
+                ->assertDontSee('header-cta', false);
+        }
+    }
+
     public function test_invalid_slugs_return_the_custom_404(): void
     {
         foreach (['/products/not-found', '/brands/not-found', '/products/electric-motors-generators.name', '/missing-page'] as $path) {

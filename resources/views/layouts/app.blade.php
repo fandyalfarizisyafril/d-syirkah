@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{ $pageTitle }}{{ $pageTitle !== $company['name'] ? ' | '.$company['name'] : '' }}</title>
     <meta name="description" content="{{ $description }}">
-    <meta name="theme-color" content="{{ request()->routeIs('home') ? '#0b192e' : '#202d31' }}">
+    <meta name="theme-color" content="#0b192e">
     <link rel="canonical" href="{{ url()->current() }}">
     <meta property="og:locale" content="id_ID">
     <meta property="og:type" content="website">

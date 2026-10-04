@@ -35,15 +35,11 @@ body.homepage {
 .homepage .button-arrow .icon { width: 15px; height: 15px; transition: transform .2s; }
 .homepage .button:hover .button-arrow .icon { transform: translateX(2px); }
 .homepage .text-link { color: #c64010; font-size: 12px; }
-.homepage .header-inner { min-height: 80px; gap: 26px; }
 .homepage .wordmark { font-size: 10px; }
 .homepage .wordmark strong { font-size: 23px; color: var(--orange); }
 .homepage .brand-mark { width: 42px; height: 42px; border-radius: 12px; box-shadow: 0 4px 9px #0b192e1a; }
 .homepage .brand-mark .icon { width: 23px; height: 23px; }
 .homepage .wordmark:hover .brand-mark { background: var(--orange); }
-.homepage .main-nav { font-size: 13px; gap: 28px; }
-.homepage .main-nav a { padding-block: 28px; }
-.homepage .main-nav a[aria-current]::after { bottom: 16px; }
 .round-contact { position: relative; display: flex; align-items: center; justify-content: center; width: 64px; height: 64px; flex-shrink: 0; border-radius: 50%; background: #0b192e; box-shadow: 0 4px 12px #0b192e26; }
 .round-contact-text { width: 60px; height: 60px; fill: white; animation: contact-rotation 18s linear infinite; }
 .round-contact-text text { font-size: 10px; font-weight: 700; }
@@ -152,7 +148,6 @@ body.homepage {
 @media (max-width: 1199px) {
     .homepage .container { width: calc(100% - 64px); }
     .homepage h1 { font-size: 48px; }
-    .homepage .main-nav { gap: 18px; font-size: 12px; }
     .design-hero-heading { gap: 30px; }
     .hero-showcase { padding-inline: 24px; gap: 24px; }
     .showcase-statistics { padding: 22px 26px; }
@@ -162,10 +157,6 @@ body.homepage {
     .mission-slide > p { font-size: 15px; }
 }
 @media (max-width: 1079px) {
-    .homepage .header-inner { padding-block: 8px; gap: 16px; }
-    .homepage .round-contact { margin-left: auto; }
-    .homepage .main-nav a { padding-block: 12px; }
-    .homepage .main-nav a[aria-current]::after { bottom: 2px; }
     .homepage h1 { font-size: 44px; }
     .homepage h2 { font-size: 38px; }
     .design-hero-heading { grid-template-columns: 1.8fr 1fr; gap: 24px; }
@@ -224,15 +215,12 @@ body.homepage {
 }
 @media (max-width: 539px) {
     .homepage .container { width: calc(100% - 36px); }
-    .homepage .header-inner { gap: 10px; }
     .homepage .wordmark { gap: 8px; font-size: 8px; }
     .homepage .wordmark strong { font-size: 19px; }
     .homepage .brand-mark { width: 34px; height: 36px; border-radius: 9px; }
     .homepage .brand-mark .icon { width: 20px; height: 20px; }
-    .homepage .round-contact { width: 52px; height: 52px; }
     .round-contact-text { width: 50px; height: 50px; }
     .round-contact > span { width: 23px; height: 23px; }
-    .homepage .menu-toggle { margin-left: 0; width: 36px; height: 40px; border-radius: 10px; }
     .homepage h1 { font-size: 34px; }
     .homepage h2 { font-size: 32px; }
     .homepage .design-hero > .container > .eyebrow { font-size: 9px; }

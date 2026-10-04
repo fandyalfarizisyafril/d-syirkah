@@ -2,6 +2,7 @@
 @import '@fontsource-variable/plus-jakarta-sans';
 @import '@fontsource-variable/outfit';
 @import './homepage.css';
+@import './header.css';
 
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
 @source '../**/*.blade.php';

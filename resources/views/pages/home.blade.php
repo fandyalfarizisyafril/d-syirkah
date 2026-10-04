@@ -13,7 +13,6 @@
         ['title' => 'Spare Parts & Pengadaan', 'description' => 'Menghubungkan kebutuhan equipment dan spare parts Anda dengan produk dari global OEM dan principal.', 'image' => 'engineering-partnership.jpg', 'alt' => 'Ilustrasi koordinasi dua tenaga profesional di lokasi proyek', 'icon' => 'handshake', 'url' => route('contact')],
     ];
 @endphp
-<x-ruler-divider />
 
 <section class="design-hero">
     <div class="container">

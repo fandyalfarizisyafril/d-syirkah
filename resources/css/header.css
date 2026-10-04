@@ -1,0 +1,39 @@
+.site-header {
+    --ink: #0b192e;
+    --orange: #f05a22;
+    --line: #e2e8f0;
+    color: var(--ink);
+    font-family: 'Plus Jakarta Sans Variable', sans-serif;
+}
+
+.site-header .header-inner { width: min(1184px, calc(100% - 96px)); min-height: 80px; gap: 26px; }
+.site-header .wordmark { font-family: 'Outfit Variable', sans-serif; font-size: 10px; font-weight: 800; color: var(--ink); }
+.site-header .wordmark strong { font-size: 23px; color: var(--orange); }
+.site-header .brand-mark { width: 42px; height: 42px; border-radius: 12px; box-shadow: 0 4px 9px #0b192e1a; }
+.site-header .brand-mark .icon { width: 23px; height: 23px; }
+.site-header .wordmark:hover .brand-mark { background: var(--orange); }
+.site-header .main-nav { font-size: 13px; gap: 28px; }
+.site-header .main-nav a { padding-block: 28px; }
+.site-header .main-nav a[aria-current]::after { bottom: 16px; }
+
+@media (max-width: 1199px) {
+    .site-header .header-inner { width: calc(100% - 64px); }
+    .site-header .main-nav { gap: 18px; font-size: 12px; }
+}
+
+@media (max-width: 1079px) {
+    .site-header .header-inner { padding-block: 8px; gap: 16px; }
+    .site-header .round-contact { margin-left: auto; }
+    .site-header .main-nav a { padding-block: 12px; }
+    .site-header .main-nav a[aria-current]::after { bottom: 2px; }
+}
+
+@media (max-width: 539px) {
+    .site-header .header-inner { width: calc(100% - 36px); gap: 10px; }
+    .site-header .wordmark { gap: 8px; font-size: 8px; }
+    .site-header .wordmark strong { font-size: 19px; }
+    .site-header .brand-mark { width: 34px; height: 36px; border-radius: 9px; }
+    .site-header .brand-mark .icon { width: 20px; height: 20px; }
+    .site-header .round-contact { width: 52px; height: 52px; }
+    .site-header .menu-toggle { margin-left: 0; width: 36px; height: 40px; border-radius: 10px; }
+}
