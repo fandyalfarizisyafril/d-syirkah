@@ -23,7 +23,7 @@ class WebsiteContentSeeder extends Seeder
             foreach ($source['products'] as $slug => $data) {
                 $brand = Brand::firstOrCreate(['slug' => $data['brand_slug']], ['name' => $data['brand'], 'description' => $data['summary']]);
                 $category = Category::firstOrCreate(['name' => $data['group']], ['slug' => Str::slug($data['group'])]);
-                Product::firstOrCreate(['slug' => $slug], [...Arr::except($data, ['brand', 'brand_slug', 'group']), 'brand_id' => $brand->id, 'category_id' => $category->id]);
+                Product::firstOrCreate(['slug' => $slug], [...Arr::except($data, ['brand', 'brand_slug', 'group']), 'image' => $data['image'] ?? config('product_images.'.$slug.'.image'), 'brand_id' => $brand->id, 'category_id' => $category->id]);
             }
             foreach (['focus', 'values', 'legal'] as $key) {
                 SiteContent::firstOrCreate(['key' => $key], ['data' => $source[$key]]);

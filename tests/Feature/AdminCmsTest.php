@@ -115,6 +115,7 @@ class AdminCmsTest extends TestCase
         $this->get('/'.$product->image)->assertOk()->assertHeader('X-Content-Type-Options', 'nosniff');
         $this->get('/'.$product->datasheet)->assertDownload('datasheet.pdf');
         $this->get('/products/test-pump')->assertSee($product->image)->assertSee($product->datasheet);
+        $this->get('/products?q=Test+Pump')->assertSee($product->image);
         $old = $product->image;
         $this->put('/admin/products/'.$product->id, $this->payload(['remove_image' => 1]))->assertSessionHasNoErrors();
         Storage::disk('local')->assertMissing('cms/'.basename($old));

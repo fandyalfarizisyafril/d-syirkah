@@ -55,6 +55,8 @@ Seeder mengambil data awal dari `config/company.php` hanya ketika profil CMS bel
 
 ## Media dan Inquiry
 
+Pembaruan 5 Oktober 2026: tujuh produk awal telah diberi foto referensi sementara. Kartu katalog, halaman brand, dan detail memakai gambar produk dari CMS. Foto dapat diganti melalui editor produk; lihat [PRODUCT_IMAGE_REFERENCES.md](PRODUCT_IMAGE_REFERENCES.md) untuk sumber dan catatan izin sebelum production.
+
 - Gambar produk/logo menerima JPG, PNG, WebP, maksimal 2 MB. Datasheet menerima PDF maksimal 2 MB. SVG/script ditolak.
 - Upload disimpan di disk `local`, folder `cms` (`storage/app/private/cms` pada konfigurasi bawaan), di luar webroot. Tidak memerlukan `storage:link`.
 - Route `/media/{filename}` menyajikan media dengan nama acak; PDF dikirim sebagai unduhan. File ini dapat diakses publik oleh pemilik URL, termasuk media produk draft. Jangan unggah dokumen rahasia.

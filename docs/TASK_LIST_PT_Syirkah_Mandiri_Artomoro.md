@@ -12,6 +12,8 @@ Tujuan task list ini adalah menjadi backlog development untuk membangun website 
 
 ## Status Eksekusi - 30 September 2026
 
+Pembaruan 5 Oktober 2026: kartu katalog kini memiliki area gambar 4:3 dan tujuh gambar referensi sementara, terhubung ke CMS. Foto oil boom diberi label ilustrasi, bukan produk BLU-C. Sumber dan batas penggunaan dicatat di [PRODUCT_IMAGE_REFERENCES.md](PRODUCT_IMAGE_REFERENCES.md). Foto pilihan owner dan izin publikasi production tetap belum final.
+
 - Milestone 1 sudah diimplementasikan dan diverifikasi di lokal: halaman publik, katalog tujuh kategori, detail produk/brand, solusi, kontak, informasi legal terbatas, responsive UI, dan SEO dasar.
 - Pencarian, filter bidang produk, dan empty state dari Milestone 2 sudah tersedia.
 - Form inquiry sudah menyimpan permintaan ke database dan dashboard admin, dengan konteks produk, validasi, CSRF, honeypot, serta throttle. Link email tetap tersedia; notifikasi email otomatis belum diaktifkan.
@@ -195,6 +197,7 @@ Acceptance criteria:
   - Air Compressor
   - Oil Spill Response & Prevention
 - [x] Buat card produk/kategori dengan nama, brand, ringkasan, dan CTA detail.
+- [x] Tambahkan gambar pada tujuh kartu katalog, rasio konsisten, lazy loading, dan tautan gambar ke detail.
 - [x] Buat filter kategori produk jika masuk phase 2.
 - [x] Buat pencarian produk jika masuk phase 2.
 - [x] Buat empty state untuk hasil pencarian/filter kosong.

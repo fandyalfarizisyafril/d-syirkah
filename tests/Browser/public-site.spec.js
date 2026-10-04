@@ -70,6 +70,29 @@ test('catalog search, filters, reset and inquiry preserve the selected product',
     expect(decodeURIComponent(mailto)).toContain('Chemical Metering Pump - Qdos');
 });
 
+test('catalog images keep consistent proportions and open the right product', async ({ page }, testInfo) => {
+    await page.goto('/products');
+    const media = page.locator('.product-card-media');
+    await expect(media).toHaveCount(7);
+    await expect(media.locator('img')).toHaveCount(7);
+    for (const frame of await media.all()) {
+        await frame.scrollIntoViewIfNeeded();
+        const picture = frame.locator('img');
+        await expect.poll(() => picture.evaluate(img => img.complete && img.naturalWidth > 0)).toBe(true);
+        expect(await picture.evaluate(img => getComputedStyle(img).objectFit)).toBe('contain');
+        const box = await frame.boundingBox();
+        expect(Math.abs(box.width / box.height - 4 / 3)).toBeLessThan(0.02);
+    }
+    await expect(page.getByText('Ilustrasi oil boom, bukan foto produk BLU-C.')).toBeVisible();
+    await page.evaluate(() => window.scrollTo({ top: 0, behavior: 'instant' }));
+    await page.screenshot({ path: testInfo.outputPath('catalog-grid.png'), fullPage: true });
+    const firstLink = media.first();
+    const destination = await firstLink.getAttribute('href');
+    await firstLink.click();
+    await expect(page).toHaveURL(destination);
+    await expect(page.locator('.product-visual img')).toBeVisible();
+});
+
 test('navigation is usable on mobile and custom 404 offers recovery', async ({ page }) => {
     await page.goto('/');
     const toggle = page.getByRole('button', { name: 'Buka navigasi' });
