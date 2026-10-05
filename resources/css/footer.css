@@ -1,0 +1,37 @@
+.site-footer { background: #0b192e; color: #f2f6f4; padding-top: 65px; font-family: 'Plus Jakarta Sans Variable', sans-serif; }
+.site-footer .container { width: min(1184px, calc(100% - 96px)); }
+.site-footer .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1.2fr 1.2fr; gap: 40px; padding-bottom: 52px; }
+.footer-grid > div { min-width: 0; }
+.site-footer .footer-wordmark { font-family: 'Outfit Variable', sans-serif; font-size: 10px; font-weight: 800; color: white; }
+.site-footer .footer-wordmark strong { font-size: 23px; color: #f05a22; }
+.site-footer .brand-mark { width: 42px; height: 42px; border-radius: 12px; background: #f05a22; box-shadow: 0 4px 9px #0b192e1a; }
+.site-footer .brand-mark .icon { width: 23px; height: 23px; }
+.site-footer .footer-grid h2 { font: 700 11px/1.5 'Plus Jakarta Sans Variable', sans-serif; text-transform: uppercase; color: white; margin-bottom: 23px; }
+.footer-grid > div > a:not(.wordmark) { display: block; font-size: 11px; color: #aab8cc; margin-bottom: 12px; overflow-wrap: anywhere; }
+.footer-grid > div > a:not(.wordmark):hover { color: #ffac87; }
+.footer-grid p, .footer-grid address { font-size: 11px; color: #aab8cc; line-height: 1.8; overflow-wrap: anywhere; }
+.footer-grid p { margin-top: 24px; max-width: 260px; }
+.footer-label { display: block; font-size: 9px; color: #94a3b8; margin-top: 18px; }
+.footer-bottom { border-top: 1px solid #ffffff24; min-height: 66px; display: flex; justify-content: space-between; align-items: center; gap: 20px; font-size: 10px; color: #aab8cc; overflow-wrap: anywhere; }
+.footer-bottom > span { min-width: 0; }
+
+@media (max-width: 1199px) {
+    .site-footer .container { width: calc(100% - 64px); }
+}
+@media (max-width: 1079px) {
+    .site-footer .footer-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 767px) {
+    .footer-bottom { align-items: start; flex-direction: column; padding-block: 20px; gap: 9px; }
+}
+@media (max-width: 539px) {
+    .site-footer .container { width: calc(100% - 36px); }
+    .site-footer .footer-grid { grid-template-columns: 1fr; }
+    .site-footer .footer-wordmark { gap: 8px; font-size: 8px; }
+    .site-footer .footer-wordmark strong { font-size: 19px; }
+    .site-footer .brand-mark { width: 34px; height: 36px; border-radius: 9px; }
+    .site-footer .brand-mark .icon { width: 20px; height: 20px; }
+}
+@media (max-width: 479px) {
+    .footer-grid p { max-width: none; }
+}

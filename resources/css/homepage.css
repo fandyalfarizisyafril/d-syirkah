@@ -10,7 +10,7 @@ body.homepage {
 }
 
 .homepage .container { width: min(1184px, calc(100% - 96px)); }
-.homepage h1, .homepage h2, .homepage h3, .homepage .wordmark, .homepage .showcase-statistics dd {
+.homepage h1, .homepage h2, .homepage h3, .homepage .showcase-statistics dd {
     font-family: 'Outfit Variable', sans-serif;
     color: var(--ink);
     font-weight: 800;
@@ -35,11 +35,6 @@ body.homepage {
 .homepage .button-arrow .icon { width: 15px; height: 15px; transition: transform .2s; }
 .homepage .button:hover .button-arrow .icon { transform: translateX(2px); }
 .homepage .text-link { color: #c64010; font-size: 12px; }
-.homepage .wordmark { font-size: 10px; }
-.homepage .wordmark strong { font-size: 23px; color: var(--orange); }
-.homepage .brand-mark { width: 42px; height: 42px; border-radius: 12px; box-shadow: 0 4px 9px #0b192e1a; }
-.homepage .brand-mark .icon { width: 23px; height: 23px; }
-.homepage .wordmark:hover .brand-mark { background: var(--orange); }
 .round-contact { position: relative; display: flex; align-items: center; justify-content: center; width: 64px; height: 64px; flex-shrink: 0; border-radius: 50%; background: #0b192e; box-shadow: 0 4px 12px #0b192e26; }
 .round-contact-text { width: 60px; height: 60px; fill: white; animation: contact-rotation 18s linear infinite; }
 .round-contact-text text { font-size: 10px; font-weight: 700; }
@@ -136,14 +131,6 @@ body.homepage {
 .homepage .brand-row a { font-family: 'Outfit Variable', sans-serif; font-size: 27px; color: #0b192e; }
 .homepage .brand-row a:hover { color: #d94712; }
 .process-teaser .container { display: flex; justify-content: space-between; align-items: center; gap: 30px; }
-.homepage .site-footer { background: #0b192e; padding-top: 65px; }
-.homepage .footer-grid { grid-template-columns: 2fr 1fr 1.2fr 1.2fr; gap: 40px; padding-bottom: 52px; }
-.homepage .footer-wordmark { color: white; }
-.homepage .footer-wordmark .brand-mark { background: #f05a22; }
-.homepage .footer-grid h2 { font: 700 11px/1.5 'Plus Jakarta Sans Variable', sans-serif; text-transform: uppercase; color: white; }
-.homepage .footer-grid p, .homepage .footer-grid address, .homepage .footer-grid > div > a:not(.wordmark) { color: #aab8cc; font-size: 11px; }
-.homepage .footer-label { color: #94a3b8; font-size: 9px; }
-.homepage .footer-bottom { color: #aab8cc; font-size: 10px; }
 
 @media (max-width: 1199px) {
     .homepage .container { width: calc(100% - 64px); }
@@ -176,7 +163,6 @@ body.homepage {
     .mission-card { padding: 28px; }
     .mission-slide > p { font-size: 14px; }
     .service-grid { grid-template-columns: repeat(2, minmax(0,1fr)); gap: 24px; }
-    .homepage .footer-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
 }
 @media (max-width: 767px) {
     .homepage .container { width: calc(100% - 48px); }
@@ -215,10 +201,6 @@ body.homepage {
 }
 @media (max-width: 539px) {
     .homepage .container { width: calc(100% - 36px); }
-    .homepage .wordmark { gap: 8px; font-size: 8px; }
-    .homepage .wordmark strong { font-size: 19px; }
-    .homepage .brand-mark { width: 34px; height: 36px; border-radius: 9px; }
-    .homepage .brand-mark .icon { width: 20px; height: 20px; }
     .round-contact-text { width: 50px; height: 50px; }
     .round-contact > span { width: 23px; height: 23px; }
     .homepage h1 { font-size: 34px; }
@@ -240,7 +222,6 @@ body.homepage {
     .focus-badge span { font-size: 9px; }
     .photo-credit { left: 12px; bottom: 10px; font-size: 8px; }
     .homepage .brand-row a { font-size: 24px; }
-    .homepage .footer-grid { grid-template-columns: 1fr; }
 }
 @media (max-width: 359px) {
     .homepage h1 { font-size: 30px; }
