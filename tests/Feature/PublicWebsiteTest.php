@@ -26,6 +26,23 @@ class PublicWebsiteTest extends TestCase
             ->assertDontSee('ApexBuild')->assertDontSee('Lorem ipsum');
     }
 
+    public function test_organization_metadata_is_valid_json_and_cannot_close_the_script_tag(): void
+    {
+        $name = 'Example "Company" </script><script>alert(1)</script>';
+        config(['company.name' => $name]);
+        $response = $this->get('/')->assertOk()->assertDontSee('<script>alert(1)</script>', false);
+        $document = new \DOMDocument;
+        @$document->loadHTML($response->getContent());
+        $scripts = (new \DOMXPath($document))->query('//script[@type="application/ld+json"]');
+        $this->assertSame(1, $scripts->length);
+        $data = json_decode($scripts->item(0)->textContent, true, 512, JSON_THROW_ON_ERROR);
+        $this->assertSame('https://schema.org', $data['@context']);
+        $this->assertSame('Organization', $data['@type']);
+        $this->assertSame($name, $data['name']);
+        $this->assertSame(route('home'), $data['url']);
+        $this->assertSame(config('company.phone_uri'), $data['telephone']);
+    }
+
     public function test_all_catalog_details_and_brand_links_are_reachable(): void
     {
         foreach (config('company.products') as $slug => $product) {

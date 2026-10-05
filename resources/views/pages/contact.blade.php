@@ -3,6 +3,33 @@
 @section('description', 'Hubungi '.$company['name'].' melalui '.$company['phone'].' atau '.$company['emails'][0].' untuk kebutuhan produk dan penawaran.')
 @section('content')
 <x-page-heading eyebrow="Hubungi Kami" title="Mari diskusikan kebutuhan Anda." description="Sampaikan kebutuhan equipment, spare parts, atau solusi teknis kepada tim kami." />
-<section class="section"><div class="container contact-grid"><div><p class="eyebrow">Kontak Perusahaan</p><h2>Terhubung dengan tim kami.</h2><div class="contact-item"><x-icon name="map-pin" /><div><h3>Alamat</h3><address>{{ $company['address'] }}</address></div></div><div class="contact-item"><x-icon name="phone" /><div><h3>Telepon</h3><a href="tel:{{ $company['phone_uri'] }}">{{ $company['phone'] }}</a></div></div><div class="contact-item"><x-icon name="mail" /><div><h3>Email</h3>@foreach($company['emails'] as $email)<a href="mailto:{{ $email }}">{{ $email }}</a>@endforeach</div></div></div><section class="inquiry-panel"><span class="product-symbol"><x-icon name="send" /></span><p class="eyebrow">Permintaan Informasi & Penawaran</p><h2>{{ $product ? $product['name'] : 'Apa yang Anda butuhkan?' }}</h2>@if($product)<p class="brand-link">{{ $product['brand'] }}</p>@endif<p>Sertakan tipe produk, jumlah, spesifikasi, dan kebutuhan aplikasi untuk membantu tim kami memahami permintaan Anda.</p><a class="button" href="{{ $emailLink }}">Kirim Permintaan via Email <x-icon name="arrow-up-right" /></a><a class="text-link" href="tel:{{ $company['phone_uri'] }}"><x-icon name="phone" />Hubungi via Telepon</a></section></div></section>
+<section class="section">
+    <div class="container contact-grid">
+        <div>
+            <p class="eyebrow">Kontak Perusahaan</p>
+            <h2>Terhubung dengan tim kami.</h2>
+            <div class="contact-item"><x-icon name="map-pin" />
+                <div>
+                    <h3>Alamat</h3>
+                    <address>{{ $company['address'] }}</address>
+                </div>
+            </div>
+            <div class="contact-item"><x-icon name="phone" />
+                <div>
+                    <h3>Telepon</h3><a href="tel:{{ $company['phone_uri'] }}">{{ $company['phone'] }}</a>
+                </div>
+            </div>
+            <div class="contact-item"><x-icon name="mail" />
+                <div>
+                    <h3>Email</h3>@foreach($company['emails'] as $email)<a href="mailto:{{ $email }}">{{ $email }}</a>@endforeach
+                </div>
+            </div>
+        </div>
+        <section class="inquiry-panel"><span class="product-symbol"><x-icon name="send" /></span>
+            <p class="eyebrow">Permintaan Informasi & Penawaran</p>
+            <h2>{{ $product ? $product['name'] : 'Apa yang Anda butuhkan?' }}</h2>@if($product)<p class="brand-link">{{ $product['brand'] }}</p>@endif<p>Sertakan tipe produk, jumlah, spesifikasi, dan kebutuhan aplikasi untuk membantu tim kami memahami permintaan Anda.</p><a class="button" href="{{ $emailLink }}">Kirim Permintaan via Email <x-icon name="arrow-up-right" /></a><a class="text-link" href="tel:{{ $company['phone_uri'] }}"><x-icon name="phone" />Hubungi via Telepon</a>
+        </section>
+    </div>
+</section>
 @include('partials.inquiry-form')
 @endsection
